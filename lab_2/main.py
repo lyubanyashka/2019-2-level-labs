@@ -76,14 +76,6 @@ def find_distance(original_word: str,
     matrix = fill_edit_matrix(matrix, add_weight, remove_weight, substitute_weight, original_word, target_word)
     return matrix[len(original_word)][len(target_word)]
 
-
-def save_to_csv(edit_matrix: tuple, path_to_file): -> None:
-    file = open(path_to_file, 'w')
-    for i in edit_matrix:
-        file.write(i)
-        file.write('\n')
-    file.close()
-
 def print_path(matrix: list,
                original_word: str,
                target_word: str,
