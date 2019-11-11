@@ -76,19 +76,21 @@ def save_to_csv(edit_matrix: tuple, path_to_file: str) -> None:
         row = [str(i) for i in line]
         row = ','.join(row)
         file.write(row)
-        file.write('/n')
+        file.write('\n')
+    file.close()
     return None
 
 
 def load_from_csv(path_to_file: str) -> list:
     text = []
     file = open(path_to_file, 'r')
-    file = file.readlines()
-    for line in file:
+    lines = file.readlines()
+    for line in lines:
         row = []
         for i in line.split(','):
-            row.append(i)
+            row.append(int(i))
         text.append(row)
+    file.close()
     return list(text)
 
 
